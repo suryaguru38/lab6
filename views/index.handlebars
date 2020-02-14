@@ -20,6 +20,8 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/introHCI.js"></script>
+	{{> facebook}}
+	<script src="/js/facebook.js"></script>
 </head>
 
 <body>
@@ -27,14 +29,18 @@
 		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
 		<!-- p means paragraph -->
 		<div class="jumbotron">
-			<h1 id="name">Scott Klemmer</h1>
+			<h1 id="name">Surya Kumaraguru</h1>
 			<p>human-computer interaction &middot; social computing &middot; crowdsourcing</p>
 			<p class="facebookLogin">Please login through Facebook</p>
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
+			</p>
+			
 		</div>
 
 		<div id="facebookPhoto" class="profile">
 			<h3>Profile Photo</h3>
-			<img id="photo" class='img-responsive' src="http://hci.stanford.edu/courses/cs547/Resources/Pictures/klemmer_grad.jpg" />
+			<img id="photo" class='img-responsive' src="https://elestoque.org/wp-content/uploads/2016/05/Screen-Shot-2016-05-24-at-6.21.45-PM.png" />
 		</div>
 
 		<h3>Projects</h3>

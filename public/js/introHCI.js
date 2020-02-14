@@ -11,9 +11,20 @@ $(document).ready(function() {
 function initializePage() {
 	$('.project a').click(addProjectDetails);
 
-	// $('#colorBtn').click(randomizeColors);
+	 $('#colorBtn').click(randomizeColors);
 }
+function add(result){
+	console.log(result);
+	// var selector = '#'+result.id;
+	var projectHTML = '<img src=' + result.image + ' class="detailsImage"/>' +
+	'<p>' + result.title + '</p>' +
+	'<p>' + result.date + '</p>' +
+	'<p>' + result.summary + '</p>';
 
+	var selector = '#project'+result.id + ' .details';
+	console.log($(selector).length)
+	$(selector).html(projectHTML);
+}
 /*
  * Make an AJAX call to retrieve project details and add it in
  */
@@ -25,6 +36,12 @@ function addProjectDetails(e) {
 	var projectID = $(this).closest('.project').attr('id');
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
+	
+
 
 	console.log("User clicked on project " + idNumber);
+	
+	var url = 'project/' + idNumber;
+	console.log(url);
+	$.get(url, add)
 }
